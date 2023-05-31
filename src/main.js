@@ -14,7 +14,8 @@ const cigCost = 750;
 const root = ReactDOM.createRoot(document.querySelector(".app"));
 root.render(
   <>
-    <h1>Hello Sam! You current result is:</h1>
+    <h1>Привет Сэм!</h1>
+    <h2>Твой текущий результат:</h2>
     <BlockComponent label={"Дней:"} info={freeDays} id={"days"} />
     <BlockComponent label={"Часов:"} info={freeHours} id={"hours"} />
     <BlockComponent
