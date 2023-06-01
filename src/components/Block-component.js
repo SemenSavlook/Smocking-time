@@ -1,26 +1,39 @@
 import React from "react";
-import { CountUp } from 'countup.js';
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef } from "react";
 import "./block-components.css";
+import { CountUp } from "countup.js";
 
-
-const BlockComponent = (prop) => {
+export default function BlockComponent(prop) {
+  console.log(prop);
   const countupRef = useRef(null);
-  const countUp = new CountUp(countupRef.current, 5234);
+  let countUpAnim;
 
-// if (!countUp.error) {
-//   countUp.start();
-// } else {
-//   console.error(countUp.error);
-// }
+  useEffect(() => {
+    initCountUp();
+  }, []);
+
+  async function initCountUp() {
+    countUpAnim = new CountUp(
+      countupRef.current,
+      prop.info,
+      prop.countJSprops || {}
+    );
+    if (!countUpAnim.error) {
+      countUpAnim.start();
+    } else {
+      console.error(countUpAnim.error);
+    }
+  }
 
   return (
-    <div className="block" id={prop.id}>
-      <span className="label">{prop.label}</span>&nbsp;<span>{prop.info}</span>
-      &nbsp;<span>{prop.onEnd}</span>
-      <div>{countUp.start()} ddd</div>
+    <div className="block">
+      <span className="label">{prop.label}</span>
+      &nbsp;
+      <span className="info" ref={countupRef}>
+        0
+      </span>
+      &nbsp;
+      <span className="info">{prop.onEnd}</span>
     </div>
   );
-};
-
-export default BlockComponent;
+}

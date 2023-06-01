@@ -328,19 +328,23 @@ h1 {
   font-size: 4rem;
   font-weight: bold;
   margin: 1rem 0;
+  text-align: center;
 }
 
 h2 {
   font-size: 2.25rem;
   font-weight: bold;
-  margin: 1rem 0;
+  margin: 1.5rem 0;
   color: #ff2b2b;
+  text-align: center;
 }
 
 .app {
   font-size: 1.75rem;
   max-width: 500px;
-  padding: 40px 15px;
-  margin: 0 auto;
+  padding: 40px 20px;
+  margin: 20px auto;
   background-color: rgb(245, 245, 245);
+  min-height: 90vh;
+  border-radius: 15px;
 }
